@@ -5,6 +5,7 @@ const BakeryInfo = (props) =>{
         <div>
             {/* <img src={props.bakery.img}></img> */}
             {props.bakery.Title}
+            {props.bakery.title}
 
             
         </div>
