@@ -4,7 +4,8 @@ import BakeryInfo from './BakeryInfo';
 const API_URL = 'http://localhost:3000'
 class Bakery extends Component{
     constructor(){
-        super();
+        super(); 
+        // test
         this.state = {
           bakery: [],
         //   activeShow: null,
