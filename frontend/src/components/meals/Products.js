@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Tile from './Tile';
-import Search from './Search';
+import Search from '../Search';
 
 const API_URL = 'http://localhost:3000'
 
