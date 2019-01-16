@@ -77,7 +77,7 @@ class Bakery extends Component{
           return (
             <BakeryInfo key={bakery.id}
               bakery={bakery}
-              setCurrentbakery={this.setCurrentbakery.bind(this)}
+              // setCurrentbakery={this.setCurrentbakery.bind(this)}
             // deletebakery={this.deletebakery.bind(this)}
               />
           )
