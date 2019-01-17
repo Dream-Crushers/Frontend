@@ -27,6 +27,7 @@ class Bakery extends Component{
               bakery: data.Addresses
             })
             this.renderBakeries();
+            console.log('bakery!!', this.state.bakery)
           })
           .catch( error => {
             console.log(error)

@@ -8,7 +8,8 @@ class Search extends Component {
       searchTerm: '',
       foodImg:'',
       meal:'',
-      result: undefined
+      result: undefined,
+      // modal: false
     }
   }
   handleChange(event) {
@@ -120,12 +121,12 @@ class Search extends Component {
 
   render() {
     return(
-      <div>
-        <div className="back" onClick={this.props.toggleSearch}>Back</div>
+      <div className="modal">
+        <div className="close-modal" onClick={()=>{this.props.toggleSearch()}}>x</div>
         <div className="search-container">
           <form className="search" onSubmit={this.handleSubmit.bind(this)}>
             <input type="text" onChange={this.handleChange.bind(this)}/>
-            <button><img src="https://i.imgur.com/WX7bym4.png" alt=""/></button>
+            <button><img src="https://i.imgur.com/WX7bym4.png" alt="" width="18px" height="15px"/></button>
           </form>
           {this.state.result ? <SearchResult info={this.state.result} img={this.state.foodImg} 
       saveMeal={this.props.saveMeal}/> : ''}
