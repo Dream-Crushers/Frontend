@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
+import SchoolSubscribe from './components/schools/SchoolSubscribe';
+
 
 import './App.css';
+
 import Products from './components/meals/Products';
 import Bakery from './components/bakery/Bakery';
 import SignUp from './components/SignUp';
@@ -8,6 +11,10 @@ import SignIn from './components/SignIn';
 import {getUser} from './components/services/authService';
 import NavBar from './components/NavBar'
 import NewBakery from './components/bakery/NewBakery';
+
+import BakeryViews from './components/bakery/BakeryViews'
+
+
 
 class App extends Component {
   constructor(){
@@ -56,7 +63,8 @@ this.checkForUser();
       
       {this.state.user ? <Profile/>: <NewBakery />}
       </div>
-      <Bakery/>
+      {/* <Bakery/> */}
+      <BakeryViews/>
       {/* <Products/> */}
       {/* <SignUp/> */}
       {/* <SignIn/> */}

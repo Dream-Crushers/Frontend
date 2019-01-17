@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-// import SignUp from '../components';
+
 
 
 class SignUp extends Component {
@@ -17,14 +17,6 @@ class SignUp extends Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    // handleChange(event) {
-    //     let target = event.target;
-    //     let name = target.name;
-
-    //     this.setState({
-    //       name: value
-    //     });
-    // }
 
     handleChange(event){
         const currentInput = event.target.name;
@@ -71,5 +63,6 @@ class SignUp extends Component {
         );
     }
 }
+
 export default SignUp;
 

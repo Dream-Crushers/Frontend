@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import Tile from './Tile';
 import Search from './Search';
+
 import Meal from './Meal';
+
 
 const API_URL = 'http://localhost:3000'
 
@@ -151,4 +153,3 @@ class Products extends Component {
   }
   
   export default Products;
-  
