@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Tile from './Tile';
-import Search from '../Search';
+import Search from './Search';
+import Meal from './Meal';
 
 const API_URL = 'http://localhost:3000'
 
@@ -33,17 +34,6 @@ class Products extends Component {
           })
       }
 
-    //   deleteMeal(meal){
-    //     const url = API_URL + `/products/${meal.id}`;
-    //     fetch(url, { method: 'DELETE' })
-    //       .then(response => response.json())
-    //       .then(data => {
-    //           console.log('meal@@', meal)
-    //         const updatedMeals = this.state.meals.filter( el => el.id !== meal.id );
-    //         this.setState({meals: updatedMeals});
-    //       })
-    //       .catch(console.log)
-    //   }
 
       toggleHover(){
         this.setState({hovered: !this.state.hovered})
@@ -67,38 +57,46 @@ class Products extends Component {
           })
       }
       //!!!!!!!
-    
+
+      setCurrentMeal(meal) {
+        console.log('setting meal');
+        console.log(meal);
+        this.setState({
+          activeMeal: meal
+        })
+        // when given a show, set state 'activeShow' to that show
+      }
 
       renderTiles(allMeals) {
         return allMeals.map((meal) => {
           return (
             <Tile key={meal.id}
               meal={meal}
-            //   setCurrentMeal={this.setCurrentMeal.bind(this)}
+           setCurrentMeal={this.setCurrentMeal.bind(this)}
             deleteMeal={this.deleteMeal.bind(this)}
               />
           )
         })
       }
 
-      createNewShow(show) {
-
-        const url = 'http://localhost:3000/shows'
+      createNewMeal(meal) {
+        console.log('******', meal)
+        const url = 'http://localhost:3000/products'
         fetch(url, {
             method: 'POST',
             headers: {
               "Content-Type": "application/json"
             },
-            body: JSON.stringify(show)
+            body: JSON.stringify(meal)
           })
           .then(response => response.json())
           .then(data => {
             console.log('DATA')
             console.log(data);
-            const updatedShows = this.state.shows.concat([data]);
-            console.log(updatedShows)
+            const updatedProducts = this.state.meals.concat([data]);
+            console.log(updatedProducts)
             this.setState({
-              shows: updatedShows,
+              meals: updatedProducts,
               activeShow: data,
               modal: false,
               search: false
@@ -114,9 +112,7 @@ class Products extends Component {
           search: !this.state.search
         })
       }
-
-
-
+      
     render() {
       return (
         <div className="products">
@@ -125,14 +121,17 @@ class Products extends Component {
             </div>
 
         <div className="color" 
-            onMouseOver={this.toggleHover.bind(this)} 
-            onMouseOut={this.toggleHover.bind(this)}
             // onClick={this.handleClick.bind(this)}
             >
            
        {this.renderTiles(this.state.meals)}
-       <Search toggleSearch={this.toggleSearch.bind(this)} saveShow={this.createNewShow.bind(this)}/>
- 
+       <Search toggleSearch={this.toggleSearch.bind(this)} saveMeal={this.createNewMeal.bind(this)}/>
+       {this.state.activeMeal?<Meal
+      setCurrentMeal={this.setCurrentMeal.bind(this)} 
+      activeMeal={this.state.activeMeal}
+
+    />:''}
+
       </div>
 
 
