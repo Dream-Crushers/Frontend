@@ -2,7 +2,9 @@ import React, {Component} from 'react';
 import BakeryInfo from './BakeryInfo';
 import NewBakery from './NewBakery';
 
+
 const API_URL = 'http://localhost:3000'
+
 class Bakery extends Component{
     constructor(){
         super(); 
