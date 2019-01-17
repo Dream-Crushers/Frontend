@@ -8,7 +8,9 @@ import Products from './components/meals/Products';
 import Bakery from './components/bakery/Bakery';
 import SignUp from './components/SignUp';
 import SignIn from './components/SignIn';
+
 import BakeryViews from './components/bakery/BakeryViews'
+
 
 
 class App extends Component {
@@ -26,11 +28,13 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+
       <BakeryViews/>
       {/* <SchoolSubscribe/>
       <Products/>
       <SignUp/>
       <SignIn/> */}
+
       </div>
     );
   }

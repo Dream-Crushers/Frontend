@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 
 
+
 class SignUp extends Component {
     constructor() {
         super();
@@ -15,6 +16,7 @@ class SignUp extends Component {
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
+
 
     handleChange(event){
         const currentInput = event.target.name;
@@ -61,4 +63,6 @@ class SignUp extends Component {
         );
     }
 }
+
 export default SignUp;
+
