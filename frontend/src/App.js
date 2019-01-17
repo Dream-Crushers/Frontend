@@ -3,8 +3,10 @@ import React, { Component } from 'react';
 
 
 import './App.css';
-// import Products from './components/Products';
+import Products from './components/meals/Products';
 import Bakery from './components/bakery/Bakery';
+import SignUp from './components/SignUp';
+import SignIn from './components/SignIn';
 
 class App extends Component {
   render() {
@@ -12,6 +14,8 @@ class App extends Component {
       <div className="App">
       <Bakery/>
       {/* <Products/> */}
+      {/* <SignUp/> */}
+      {/* <SignIn/> */}
       </div>
     );
   }

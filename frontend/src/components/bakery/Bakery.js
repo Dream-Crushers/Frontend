@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import BakeryInfo from './BakeryInfo';
 import NewBakery from './NewBakery';
+
 const API_URL = 'http://localhost:3000'
 class Bakery extends Component{
     constructor(){
@@ -32,6 +33,7 @@ class Bakery extends Component{
             console.log(error)
           })
       }
+
       renderBakeries(){
         console.log('fetching bakeries');
         fetch('http://localhost:3000/bakery')
@@ -46,9 +48,11 @@ class Bakery extends Component{
             console.log(error)
           })
       }
+
       toggleHover(){
         this.setState({hovered: !this.state.hovered})
       }
+
     //   toggleHover(){
     //     this.setState({hovered: !this.state.hovered})
     //   }
@@ -77,13 +81,17 @@ class Bakery extends Component{
           return (
             <BakeryInfo key={bakery.id}
               bakery={bakery}
+
               // setCurrentbakery={this.setCurrentbakery.bind(this)}
+
             // deletebakery={this.deletebakery.bind(this)}
               />
           )
         })
       }
+
       createNewBakery(bakery) {
+
         const url = 'http://localhost:3000/bakery'
         fetch(url, {
             method: 'POST',
@@ -109,6 +117,7 @@ class Bakery extends Component{
             console.log(error);
           })
        }
+
     //    toggleSearch(){
     //     this.setState({
     //       search: !this.state.search
@@ -121,6 +130,7 @@ class Bakery extends Component{
         this.createNewBakery(bakery)
       
     }
+
     setCurrentBakery(bakery) {
       console.log('setting bakery');
       console.log(bakery);
@@ -129,6 +139,7 @@ class Bakery extends Component{
       })
       // when given a show, set state 'activeShow' to that show
     }
+
     render() {
       return (
         <div>
@@ -138,9 +149,11 @@ class Bakery extends Component{
        { this.renderContent() }
        </div> */}
        <div>
+
  <NewBakery 
 handleSubmit={this.handleSubmit.bind(this)} />
       </div>
+
       </div>
       );
     }
