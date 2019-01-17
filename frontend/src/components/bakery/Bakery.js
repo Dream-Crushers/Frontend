@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import BakeryInfo from './BakeryInfo';
+import NewBakery from './NewBakery';
 
 const API_URL = 'http://localhost:3000'
 class Bakery extends Component{
@@ -7,7 +8,8 @@ class Bakery extends Component{
         super();
         this.state = {
           bakery: [],
-        //   activeShow: null,
+          hovered: false,
+          activeShow: null
         //   modal: false,
         //   hovered: false,
         //   activeMeal: null,
@@ -24,12 +26,31 @@ class Bakery extends Component{
             this.setState({
               bakery: data.Addresses
             })
+            this.renderBakeries();
           })
           .catch( error => {
             console.log(error)
           })
       }
 
+      renderBakeries(){
+        console.log('fetching bakeries');
+        fetch('http://localhost:3000/bakery')
+          .then( response => response.json())
+          .then( data => {
+            console.log('bakery',data);
+            this.setState({
+              bakery: this.state.bakery.concat(data)
+            })
+          })
+          .catch( error => {
+            console.log(error)
+          })
+      }
+
+      toggleHover(){
+        this.setState({hovered: !this.state.hovered})
+      }
 
     //   toggleHover(){
     //     this.setState({hovered: !this.state.hovered})
@@ -61,58 +82,83 @@ class Bakery extends Component{
           return (
             <BakeryInfo key={bakery.id}
               bakery={bakery}
-            //   setCurrentbakery={this.setCurrentbakery.bind(this)}
+            // setCurrentbakery={this.setCurrentbakery.bind(this)}
             // deletebakery={this.deletebakery.bind(this)}
               />
           )
         })
       }
 
-    //   createNewShow(show) {
+      createNewBakery(bakery) {
 
-    //     const url = 'http://localhost:3000/shows'
-    //     fetch(url, {
-    //         method: 'POST',
-    //         headers: {
-    //           "Content-Type": "application/json"
-    //         },
-    //         body: JSON.stringify(show)
-    //       })
-    //       .then(response => response.json())
-    //       .then(data => {
-    //         console.log('DATA')
-    //         console.log(data);
-    //         const updatedShows = this.state.shows.concat([data]);
-    //         console.log(updatedShows)
-    //         this.setState({
-    //           shows: updatedShows,
-    //           activeShow: data,
-    //           modal: false,
-    //           search: false
-    //         })
-    //       })
-    //       .catch(error => {
-    //         console.log(error);
-    //       })
-    //    }
+        const url = 'http://localhost:3000/bakery'
+        fetch(url, {
+            method: 'POST',
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify(bakery)
+          })
+          .then(response => response.json())
+          .then(data => {
+            console.log('DATA')
+            console.log(data);
+            const updatedBakery = this.state.bakery.concat([data]);
+            console.log(updatedBakery)
+            this.setState({
+              bakery: updatedBakery,
+              activeShow: data,
+              modal: false,
+              search: false
+            })
+          })
+          .catch(error => {
+            console.log(error);
+          })
+       }
 
     //    toggleSearch(){
     //     this.setState({
     //       search: !this.state.search
     //     })
     //   }
+    handleSubmit(bakery) {
+      // if(this.state.activeShow) {
+      //   this.updateShow(bakery)
+      // } else {
+        this.createNewBakery(bakery)
+      
+    }
+
+    setCurrentBakery(bakery) {
+      console.log('setting bakery');
+      console.log(bakery);
+      this.setState({
+        activeShow: bakery
+      })
+      // when given a show, set state 'activeShow' to that show
+    }
+
 
 
 
     render() {
       return (
-<div>
-           
-       {this.renderBakeryInfo(this.state.bakery)}
+        <div>
+           {this.renderBakeryInfo(this.state.bakery)}
+      {/* <div onMouseOver={this.toggleHover.bind(this)} 
+        onMouseOut={this.toggleHover.bind(this)}>
+       { this.renderContent() }
+       </div> */}
+       <div>
 
- 
+ <NewBakery 
+handleSubmit={this.handleSubmit.bind(this)} />
       </div>
-
+      {/* <label>bak:</label><input type="text"  name="email" onChange={this.handleChange.bind(this)}/><br/>
+          <label>city:</label><input type="text" value={this.state.password} name="password" onChange={this.handleChange.bind(this)}/><br/>
+          */}
+      </div>
       );
     }
   }
