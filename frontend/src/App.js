@@ -9,16 +9,32 @@ import Bakery from './components/bakery/Bakery';
 import SignUp from './components/SignUp';
 import SignIn from './components/SignIn';
 
+import BakeryViews from './components/bakery/BakeryViews'
+
+
 
 class App extends Component {
+  constructor(){
+    super();
+    this.state ={
+      
+    }
+  }
+  toggleModal(){
+    this.setState({
+      modal: !this.state.modal
+    })
+  }
   render() {
     return (
       <div className="App">
-      {/* <Bakery/> */}
-      <SchoolSubscribe/>
-      {/* <Products/> */}
-      {/* <SignUp/> */}
-      {/* <SignIn/> */}
+
+      <BakeryViews/>
+      {/* <SchoolSubscribe/>
+      <Products/>
+      <SignUp/>
+      <SignIn/> */}
+
       </div>
     );
   }

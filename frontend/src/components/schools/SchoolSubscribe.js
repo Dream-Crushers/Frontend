@@ -51,12 +51,6 @@ class SchoolSubscribe extends Component {
         this.props.handleSubmit(this.state)
       }
 
-
-
-    
-
-
-
       totalCost(){
         const students = this.state.NoOfStudents;
         console.log('STUDENTS', students)
@@ -67,6 +61,7 @@ class SchoolSubscribe extends Component {
         this.setState({
           total:tot
         })
+
       }
         alertSubscribers(e){
           alert('Thanks for being part of the community');
@@ -75,7 +70,6 @@ class SchoolSubscribe extends Component {
       
 
 
-      
       
       
       render(){
@@ -89,7 +83,9 @@ class SchoolSubscribe extends Component {
               <label>Address:</label><input type="text" value={this.state.address} name="address" onChange={this.handleChange.bind(this)}/><br/>
               <label>Building Number:</label><input type="text" value={this.state.building_number}name="building_number" onChange={this.handleChange.bind(this)}/><br/>
               <label>Phone:</label><input type="text" value={this.state.phone}name="phone" onChange={this.handleChange.bind(this)}/><br/>
+
               <label>No.Of Students::</label><input type="text" value={this.state.NoOfStudents}name="NoOfStudents" onChange={this.handleChange.bind(this)}/><br/>
+
               <label>subscribe Time: </label>
               <select name="subscribe_time"
                onChange={this.handleChange.bind(this)}>
@@ -98,6 +94,7 @@ class SchoolSubscribe extends Component {
                 <option value="120"> 6 Months </option>
               </select> <br/>
               <label>Total:</label><input type="number" value={this.state.total} name="Total" onChange={this.handleChange.bind(this)} /><br/>
+
             </form>
             <div>
             <form onSubmit={this.alertSubscribers}>
