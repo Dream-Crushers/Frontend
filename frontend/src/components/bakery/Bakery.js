@@ -5,7 +5,8 @@ import NewBakery from './NewBakery';
 const API_URL = 'http://localhost:3000'
 class Bakery extends Component{
     constructor(){
-        super();
+        super(); 
+        // test
         this.state = {
           bakery: [],
           hovered: false,
@@ -55,7 +56,6 @@ class Bakery extends Component{
     //   toggleHover(){
     //     this.setState({hovered: !this.state.hovered})
     //   }
-
     // deleteMeal(id) {
     //     const url = `http://localhost:3000/products/${id}`;
     //     fetch(url, {
@@ -75,14 +75,15 @@ class Bakery extends Component{
     //   }
     //   //!!!!!!!
     
-
       renderBakeryInfo(allBakeries) {
           console.log('!!!!!!!!',allBakeries);
         return allBakeries.map((bakery) => {
           return (
             <BakeryInfo key={bakery.id}
               bakery={bakery}
-            // setCurrentbakery={this.setCurrentbakery.bind(this)}
+
+              // setCurrentbakery={this.setCurrentbakery.bind(this)}
+
             // deletebakery={this.deletebakery.bind(this)}
               />
           )
@@ -139,9 +140,6 @@ class Bakery extends Component{
       // when given a show, set state 'activeShow' to that show
     }
 
-
-
-
     render() {
       return (
         <div>
@@ -155,13 +153,10 @@ class Bakery extends Component{
  <NewBakery 
 handleSubmit={this.handleSubmit.bind(this)} />
       </div>
-      {/* <label>bak:</label><input type="text"  name="email" onChange={this.handleChange.bind(this)}/><br/>
-          <label>city:</label><input type="text" value={this.state.password} name="password" onChange={this.handleChange.bind(this)}/><br/>
-          */}
+
       </div>
       );
     }
   }
   
   export default Bakery;
-  
