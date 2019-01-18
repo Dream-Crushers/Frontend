@@ -4,6 +4,7 @@ class NewBakery extends Component{
 constructor(){
     super();
     this.state= {
+        bakery:'',
         title:'',
         password:'',
         address:'',
@@ -16,6 +17,24 @@ constructor(){
 
 
 }
+
+
+componentDidMount() {
+    console.log('fetching data');
+
+    fetch('http://localhost:3000/bakery')
+      .then(response => response.json())
+      .then(data => {
+        console.log(data);
+        this.setState({
+          bakery: data
+        })
+      })
+
+      .catch(error => {
+        console.log(error)
+      })
+  }
 
 handleChange(event){
     const currentInput = event.target.name;
@@ -31,8 +50,36 @@ handleChange(event){
 
   handleSubmit(event) {
     event.preventDefault();
-    this.props.handleSubmit(this.state)
-    // this.props.createNew(this.state)
+    // this.props.handleSubmit(this.state)
+    this.createNewBakery(this.state)
+  }
+  
+    createNewBakery(bakery) {
+
+    const url = 'http://localhost:3000/api/bakery'
+    fetch(url, {
+      method: 'POST',
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(bakery)
+    })
+      .then(response => response.json())
+      .then(data => {
+        console.log('DATA')
+        console.log(data);
+        const updatedBakery = this.state.bakery.concat([data]);
+        console.log(updatedBakery)
+        this.setState({
+          bakery: updatedBakery,
+          activeShow: data,
+          modal: false,
+          search: false
+        })
+      })
+      .catch(error => {
+        console.log(error);
+      })
   }
   
   render(){

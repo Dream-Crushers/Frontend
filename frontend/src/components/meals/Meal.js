@@ -40,7 +40,7 @@ class Meal extends Component {
         }} >
         back
       </div>
-      <div className="modal">
+      <div className="search-modal">
       <div className="close-modal" onClick={()=>{this.props.setCurrentMeal(null)}}>x</div>
       
 
@@ -49,7 +49,7 @@ class Meal extends Component {
           <div>
           <br/><br/>
           
-            <img src={this.props.activeMeal.img} alt="" />
+            <img src={this.props.activeMeal.img} alt="" width="100px" height="100px" />
             <h2>Meal:{this.props.activeMeal.name}</h2>
             <div id="nutritionfacts">
         <table width="242" cellSpacing="0" cellPadding="0">
