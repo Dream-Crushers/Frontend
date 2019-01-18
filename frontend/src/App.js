@@ -75,6 +75,9 @@ class App extends Component {
 
         <div className="container">
           {this.state.user ? 
+
+
+
             <BakeryProducts isBaker={this.state.user}/> :  this.renderContent()}
           </div>
 
