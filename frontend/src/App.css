@@ -50,7 +50,22 @@ left:40px;
 
 
 }
+.bakery-views{
+  display:flex
+}
 
+.bakery-view{
+  width: 200px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap:  wrap;
+  margin: 10px 20px;
+  justify-content: space-between;
+  background-color:  rgb(247, 238, 238);
+  cursor: pointer;
+  position: relative;
+}
 .delete-meal{
 
     position: absolute;
