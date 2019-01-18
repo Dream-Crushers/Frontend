@@ -1,16 +1,39 @@
 
 import React, { Component } from 'react';
 import ProductView from '../meals/ProductView';
+import SchoolSubscribe from '../schools/SchoolSubscribe';
+import App from '../../App';
 
 
 class Bakery extends Component{
+  constructor(){
+    super();
+    this.state={
+      subscribe:false,
+      home:false,
+      form:''
+    }
+
+  }
+
+  toggleSubscribe(){
+this.setState({
+  subscribe:!this.state.subscribe
+})
+  }
+
+  renderContent(){
+   
+  }
     render(){
       return (
 
-        <div className=""
-            
-        >
-            <img src={this.props.activeBakery.img} width="200px" height="200px"></img>
+        <div className="" >
+        {this.state.home ? <App/>: ''}
+      
+{this.state.subscribe ? <SchoolSubscribe/> :
+<div>
+<img src={this.props.activeBakery.img} width="200px" height="200px"></img>
             {/* {this.props.activeBakery.Title} */}
             {this.props.activeBakery.title}
             {this.props.activeBakery.address}
@@ -20,7 +43,12 @@ class Bakery extends Component{
             {this.props.activeBakery.email}
 
             <ProductView bakeryId={this.props.activeBakery.id}/>
+            <button onClick={this.toggleSubscribe.bind(this)}>subscribe</button>
+
+  </div>}
+
         </div>
+    
     )
 }}
 

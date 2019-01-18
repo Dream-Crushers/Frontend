@@ -84,6 +84,7 @@ class BakeryProducts extends Component {
               meal={meal}
            setCurrentMeal={this.setCurrentMeal.bind(this)}
             deleteMeal={this.deleteMeal.bind(this)}
+            isBaker={this.props.isBaker}
               />
           )
         })
