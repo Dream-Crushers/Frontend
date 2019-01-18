@@ -43,6 +43,41 @@ class BakeryViews extends Component {
       )
     })
   }
+  //   handleSubmit(bakery) {
+  //   // if(this.state.activeShow) {
+  //   //   this.updateShow(bakery)
+  //   // } else {
+  //   this.createNewBakery(bakery)
+
+  // }
+
+  //   createNewBakery(bakery) {
+
+  //   const url = 'http://localhost:3000/bakery'
+  //   fetch(url, {
+  //     method: 'POST',
+  //     headers: {
+  //       "Content-Type": "application/json"
+  //     },
+  //     body: JSON.stringify(bakery)
+  //   })
+  //     .then(response => response.json())
+  //     .then(data => {
+  //       console.log('DATA')
+  //       console.log(data);
+  //       const updatedBakery = this.state.bakery.concat([data]);
+  //       console.log(updatedBakery)
+  //       this.setState({
+  //         bakery: updatedBakery,
+  //         activeShow: data,
+  //         modal: false,
+  //         search: false
+  //       })
+  //     })
+  //     .catch(error => {
+  //       console.log(error);
+  //     })
+  // }
 
   setCurrentBakery(bakery) {
     console.log(bakery)

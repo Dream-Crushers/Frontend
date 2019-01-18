@@ -1,6 +1,6 @@
 import React from "react";
 
-const NavBar = ({ user, onLogin, onSignup, logout, getProducts }) => {
+const NavBar = ({ user, changeView, logout, getProducts }) => {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <div className="navbar-brand">Navbar</div>
@@ -20,10 +20,22 @@ const NavBar = ({ user, onLogin, onSignup, logout, getProducts }) => {
           {// if the user is not authenticated
           !user && (
             <React.Fragment>
-              <li className="nav-item active" onClick={() => onLogin()}>
+              <li
+                className="nav-item active"
+                onClick={() => changeView("home")}
+              >
+                <div className="nav-link">Home</div>
+              </li>
+              <li
+                className="nav-item active"
+                onClick={() => changeView("login")}
+              >
                 <div className="nav-link">Login</div>
               </li>
-              <li className="nav-item active" onClick={() => onSignup()}>
+              <li
+                className="nav-item active"
+                onClick={() => changeView("signup")}
+              >
                 <div className="nav-link">Signup</div>
               </li>
             </React.Fragment>

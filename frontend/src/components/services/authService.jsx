@@ -1,33 +1,31 @@
-import jwtDecode from 'jwt-decode';
+import jwtDecode from "jwt-decode";
 
-const tokenkey = "authToken";
+const tokenKey = "authToken";
 
-export function setJwt(token){
-    localStorage.setItem(tokenkey,token);
+export function setJwt(token) {
+  localStorage.setItem(tokenKey, token);
 }
 
-export function getJwt(){
-    localStorage.getItem(tokenkey);
+export function getJwt() {
+  return localStorage.getItem(tokenKey);
 }
 
-export function logout(){
-    localStorage.removeItem(tokenkey);
+export function logout() {
+  localStorage.removeItem(tokenKey);
 }
 
-export function getUser(){
-    try{
-        const jwt = localStorage.getItem(tokenkey);
-        return jwtDecode(jwt)
-    }
-    catch(ex){
-        console.log(ex);
-    }
-  
+export function getUser() {
+  try {
+    const jwt = localStorage.getItem(tokenKey);
+    return jwtDecode(jwt);
+  } catch (ex) {
+    console.log(ex);
+  }
 }
 
-export default{
-    setJwt,
-    getJwt,
-    getUser,
-    logout
-}
+export default {
+  setJwt,
+  logout,
+  getUser,
+  getJwt
+};

@@ -1,21 +1,28 @@
 
 import React, { Component } from 'react';
+import ProductView from '../meals/ProductView';
 
 
-const Bakery = (props) => {
-    return (
+class Bakery extends Component{
+    render(){
+      return (
 
-        <div className="tile-container"
+        <div className=""
             
         >
-            <img src={props.activeBakery.img} width="200px" height="200px"></img>
-            {props.activeBakery.Title}
-            {props.activeBakery.title}
+            <img src={this.props.activeBakery.img} width="200px" height="200px"></img>
+            {/* {this.props.activeBakery.Title} */}
+            {this.props.activeBakery.title}
+            {this.props.activeBakery.address}
+            {this.props.activeBakery.building_number}
+            {this.props.activeBakery.city}
+            {this.props.activeBakery.phone}
+            {this.props.activeBakery.email}
 
-
+            <ProductView bakeryId={this.props.activeBakery.id}/>
         </div>
     )
-}
+}}
 
 export default Bakery;
 
@@ -195,4 +202,7 @@ export default Bakery;
 
 // export default Bakery;
 
+<<<<<<< HEAD
 // >>>>>>> 6ea0256a995e22bf18468c21a6ed6260c89b50fa
+=======
+>>>>>>> 8f66aa54d687ba272927a1a266eac60692d2e2e2
