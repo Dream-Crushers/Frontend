@@ -74,7 +74,7 @@ class SchoolSubscribe extends Component {
       
       render(){
         return(
-          <div className="modal">
+          <div className="school">
             <form className="show-form" onSubmit={this.handleSubmit.bind(this)}>
               <div className="close-modal"> </div>
               <label>Email:</label><input type="text" value={this.state.email} name="email" onChange={this.handleChange.bind(this)}/><br/>

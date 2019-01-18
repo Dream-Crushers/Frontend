@@ -58,7 +58,7 @@ class App extends Component {
     else if(this.state.form ==='login')
     return <SignIn onLogin={this.login}/>
     else
-    return <NewBakery />
+    return <NewBakery/>
   }
 
   render() {
@@ -75,8 +75,10 @@ class App extends Component {
 
         <div className="container">
           {this.state.user ? 
-            <BakeryProducts/> :  this.renderContent()}
-          </div> */}
+
+            <BakeryProducts isBaker={this.state.user}/> :  this.renderContent()}
+          </div>
+
        {/* {this.state.user ? <BakeryViews/>:  <BakeryViews/>}
        {this.state.form === 'signup'? <NewBakery />:''}
        {this.state.form === 'login'? <SignIn/>:''} */} 
