@@ -10,9 +10,8 @@ const Tile = (props) => {
       {/* <h2>{props.meal.calories}</h2>
       <h2>{props.meal.fat}</h2>
       <h2>{props.meal.sodium}</h2> */}
- <img src={props.meal.img} alt="" width="100px" height="100px"/>
-
-      <button className="delete-meal" onClick={() => {props.deleteMeal(props.meal.id)}}>x</button> 
+      <img src={props.meal.img} alt="" width="100px" height="100px"/>
+      {props.isBaker ? <button className="delete-meal" onClick={() => {props.deleteMeal(props.meal.id)}}>x</button> :''}
       </div>
     // </div>
   )
