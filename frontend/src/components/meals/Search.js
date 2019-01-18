@@ -12,6 +12,10 @@ class Search extends Component {
       // modal: false
     }
   }
+
+  componentDidMount(){
+    console.log('yayß')
+  }
   handleChange(event) {
     this.setState({
       searchTerm: event.target.value,
@@ -121,7 +125,7 @@ class Search extends Component {
 
   render() {
     return(
-      <div className="modal">
+      <div className="search-modal">
         <div className="close-modal" onClick={()=>{this.props.toggleSearch()}}>x</div>
         <div className="search-container">
           <form className="search" onSubmit={this.handleSubmit.bind(this)}>
