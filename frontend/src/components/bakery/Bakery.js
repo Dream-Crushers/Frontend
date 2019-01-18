@@ -195,4 +195,4 @@ export default Bakery;
 
 // export default Bakery;
 
->>>>>>> 6ea0256a995e22bf18468c21a6ed6260c89b50fa
+// >>>>>>> 6ea0256a995e22bf18468c21a6ed6260c89b50fa
