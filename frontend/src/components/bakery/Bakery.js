@@ -230,11 +230,11 @@ export default Bakery;
 
 // export default Bakery;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-// >>>>>>> 6ea0256a995e22bf18468c21a6ed6260c89b50fa
-=======
->>>>>>> 8f66aa54d687ba272927a1a266eac60692d2e2e2
-=======
+// <<<<<<< HEAD
+// <<<<<<< HEAD
+// // >>>>>>> 6ea0256a995e22bf18468c21a6ed6260c89b50fa
+// =======
+// >>>>>>> 8f66aa54d687ba272927a1a266eac60692d2e2e2
+// =======
 
->>>>>>> 2da49dee8763dc5e328dba3476adc8a3b3a28f5e
+// >>>>>>> 2da49dee8763dc5e328dba3476adc8a3b3a28f5e

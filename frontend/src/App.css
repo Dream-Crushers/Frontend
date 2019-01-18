@@ -2,6 +2,14 @@
   display:flex;
   margin:20px
 }
+
+
+/* .navbar-brand{
+  text-align: center;
+
+} */
+
+
 .tile-container{
   width: 200px;
   height: 200px;
@@ -14,6 +22,7 @@
   cursor: pointer;
   position: relative;
 }
+
 
 .tile-container > img{
 position: absolute;
