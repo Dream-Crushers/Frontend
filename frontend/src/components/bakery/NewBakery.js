@@ -37,11 +37,15 @@ handleChange(event){
   
   render(){
     return(
-      <div className="modal">
+      <div className=".">
         <form className="bakery-form" onSubmit={this.handleSubmit.bind(this)}>
-          <div className="close-modal" 
+          <div className="." 
         //   onClick={()=>{this.props.toggleModal()}}
           >x</div>
+                   {/* <select name="cars">
+  <option value={this.props.bakery.Title}>
+  {this.props.bakery.Title}</option>
+  </select><br/> */}
           <label>Email:</label><input type="text" value={this.state.email} name="email" onChange={this.handleChange.bind(this)}/><br/>
           <label>password:</label><input type="password" value={this.state.password} name="password" onChange={this.handleChange.bind(this)}/><br/>
           <label>Name:</label><input type="text" value={this.state.title} name="title" onChange={this.handleChange.bind(this)}/><br/>
@@ -59,4 +63,3 @@ handleChange(event){
 }
 
 export default NewBakery;
-

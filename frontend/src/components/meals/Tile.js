@@ -5,7 +5,7 @@ const Tile = (props) => {
     <div className="tile-container" 
     onClick={() => {props.setCurrentMeal(props.meal)}}
     >
-    <div className="meal-details">
+    {/* <div className="meal-details"> */}
       <h2>{props.meal.name}</h2>
       {/* <h2>{props.meal.calories}</h2>
       <h2>{props.meal.fat}</h2>
@@ -14,7 +14,7 @@ const Tile = (props) => {
 
       <button className="delete-meal" onClick={() => {props.deleteMeal(props.meal.id)}}>x</button> 
       </div>
-    </div>
+    // </div>
   )
 }
 

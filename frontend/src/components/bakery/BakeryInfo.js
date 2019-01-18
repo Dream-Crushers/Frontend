@@ -1,12 +1,15 @@
-import React from 'react';
+import React, { Component } from 'react';
+import BakeryViews from './BakeryViews';
 
-const BakeryInfo = (props) =>{
-    return(
-        <div>
-            {/* <img src={props.bakery.img}></img> */}
+const BakeryInfo = (props) => {
+    return (
+
+
+        <div className="tile-container"
+            onClick={() => { props.setCurrentBakery(props.bakery) }} >
+            <img src={props.bakery.img} width="200px" height="200px"></img>
             {props.bakery.Title}
             {props.bakery.title}
-
             
         </div>
     )

@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import Tile from './Tile';
 import Search from './Search';
+
 import Meal from './Meal';
+
 
 const API_URL = 'http://localhost:3000'
 
@@ -112,6 +114,12 @@ class Products extends Component {
           search: !this.state.search
         })
       }
+
+      toggleModal(){
+        this.setState({
+          modal: !this.state.modal
+        })
+      }
       
     render() {
       return (
@@ -120,18 +128,22 @@ class Products extends Component {
             {/* {this.renderTiles(this.state.meals)} */}
             </div>
 
-        <div className="color" 
+        <div className="meals-list" 
             // onClick={this.handleClick.bind(this)}
             >
-           
+     
        {this.renderTiles(this.state.meals)}
-       <Search toggleSearch={this.toggleSearch.bind(this)} saveMeal={this.createNewMeal.bind(this)}/>
-       {this.state.activeMeal?<Meal
-      setCurrentMeal={this.setCurrentMeal.bind(this)} 
-      activeMeal={this.state.activeMeal}
+       {this.state.search?  <Search 
+       toggleSearch={this.toggleSearch.bind(this)}
+       saveMeal={this.createNewMeal.bind(this)}/>:''}
+       
+          {this.state.activeMeal?<Meal
+          setCurrentMeal={this.setCurrentMeal.bind(this)} 
+          activeMeal={this.state.activeMeal}
+          toggleModal={this.toggleModal.bind(this)}
+          />:''}
 
-    />:''}
-
+   <div onClick={this.toggleSearch.bind(this)}>+</div> 
       </div>
 
 
@@ -141,4 +153,3 @@ class Products extends Component {
   }
   
   export default Products;
-  

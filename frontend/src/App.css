@@ -1,15 +1,47 @@
+.meals-list{
+  display:flex;
+  margin:20px
+}
 .tile-container{
-  width: 250px;
+  width: 200px;
   height: 200px;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap:  wrap;
+  margin: 10px 20px;
+  justify-content: space-between;
+  background-color:  rgb(247, 238, 238);
+  cursor: pointer;
+  position: relative;
+}
+
+.tile-container > img{
+position: absolute;
+bottom:0;
+left:40px;
+}
+/* .tile-container {
+  width: 250px;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
   margin: 10px 5px;
   justify-content: space-between;
-  flex-flow: row wrap;
-  background-color:  rgb(204, 157, 157);
+  background-color:  rgb(228, 93, 93);
   cursor: pointer;
-}
+} */
+
+
+/* .tile-container > h2 {
+  margin: 0;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 5px;
+  color: white;
+} */
 
 .meal-details{
   position: relative;
@@ -25,7 +57,75 @@
     top: 0px;
     right: 0px;
 
+} 
+
+.modal{
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background-color: rgba(0,0,0,.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+
+.close-modal{
+  position: absolute;
+  top: 9px;
+  right: 14px;
+  cursor: pointer;
+  font-size: 1.5em;
+}
+
+.search-container form{
+  display: flex;
+}
+
+.search-container form input{
+  flex: 1;
+  font-size: 20px;
+  padding: 5px 10px;
+}
+
+.search-container form button{
+  background-color: rgb(228, 93, 93);
+}
+
+ .search-result{
+  background-color: white;
+  align-items: center;
+  text-align: center;
+  /* display: flex;
+  flex-direction: column;
+  margin-bottom: 20px; */
+}
+
+
+.activities{
+  width: 550px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  margin: 10px 5px;
+  justify-content: space-between;
+  /* background-color:  rgb(204, 157, 157); */
+  cursor: pointer;
+}
+/* 
+.search-result>div{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.search-result img{
+  height: 250px;
+  width: 180px;
+  object-fit: cover;
+} */
 /* 
 .tile {
   width: 250px;
@@ -37,3 +137,56 @@
   background-color:  rgb(228, 93, 93);
   cursor: pointer;
 } */
+
+#nutritionfacts { 
+  background-color:white; 
+  border:1px solid black; 
+  padding:3px; width:244px; 
+  margin-left: 150px
+}
+#nutritionfacts td { 
+  color:black; 
+  font-family:'Arial Black','Helvetica Bold',sans-serif; 
+  font-size:8pt; 
+  padding:0; 
+}
+#nutritionfacts td.header { 
+  font-family:'Arial Black','Helvetica Bold',sans-serif; 
+  font-size:28px; 
+  white-space:nowrap; 
+}        
+#nutritionfacts div.label { 
+  float:left; 
+  font-family:'Arial Black','Helvetica Bold',sans-serif; 
+}
+#nutritionfacts div.serving { 
+  font-family:Arial,Helvetica,sans-serif; 
+  font-size:8pt; 
+  text-align:center; 
+}
+#nutritionfacts div.weight { 
+  display:inline; 
+  font-family:Arial,Helvetica,sans-serif; 
+  padding-left:1px; 
+}
+#nutritionfacts div.dv { 
+  display:inline; 
+  float:right; 
+  font-family:'Arial Black','Helvetica Bold',sans-serif; 
+}
+#nutritionfacts table.vitamins td {  
+  font-family:Arial,Helvetica,sans-serif; 
+  white-space:nowrap; 
+  width:33%; 
+}
+#nutritionfacts div.line { 
+  border-top:1px solid black; 
+}
+#nutritionfacts div.labellight { 
+  float:left; 
+  font-family:Arial,Helvetica,sans-serif; 
+}
+#nutritionfacts .highlighted {
+  border:1px dotted grey;
+  padding:2px;
+}
