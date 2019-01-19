@@ -64,7 +64,8 @@ class App extends Component {
   render() {
     return (
       <div>
-                <NavBar
+        <div>
+        <NavBar
           user={this.state.user}
           changeView={this.changeView}
           logout={this.logout}
@@ -72,12 +73,17 @@ class App extends Component {
           signUp={this.signUp}
           logIn={this.logIn}
         />
-
+        </div>
+           
 
         <div className="container">
           {this.state.user ? 
+
+
+
             <BakeryProducts isBaker={this.state.user}/> :  this.renderContent()}
           </div>
+
        {/* {this.state.user ? <BakeryViews/>:  <BakeryViews/>}
        {this.state.form === 'signup'? <NewBakery />:''}
        {this.state.form === 'login'? <SignIn/>:''} */} 
@@ -88,8 +94,9 @@ class App extends Component {
       {/* <Products/> */}
       {/* <SignUp/> */}
       {/* <SignIn/> */}
+      {/* <SchoolSubscribe/> */}
         </div>
-    );
-  }
+   );
+ }
 }
 export default App;
