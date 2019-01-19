@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import ProductView from '../meals/ProductView';
 import SchoolSubscribe from '../schools/SchoolSubscribe';
+import { getJwt } from "../services/authService";
 import App from '../../App';
 
 
@@ -10,10 +11,34 @@ class Bakery extends Component{
     super();
     this.state={
       subscribe:false,
+      subscription:'',
       home:false,
       form:''
     }
 
+  }
+
+  componentDidMount() {
+
+    fetch('http://localhost:3000/subscription/onlybaker', {
+      method: 'GET',
+      headers: {
+          "Content-Type": "application/json",
+        "x-auth-token": getJwt()
+      }
+    })
+      .then(response => response.json())
+      .then(data => {
+        console.log(data);
+        this.setState({
+          subscription: data
+        })
+      })
+
+      .catch(error => {
+        console.log(error)
+      })
+      console.log(this.state.subscription)
   }
 
   toggleSubscribe(){
@@ -31,7 +56,7 @@ this.setState({
         <div className="" >
         {this.state.home ? <App/>: ''}
       
-{this.state.subscribe ? <SchoolSubscribe/> :
+{this.state.subscribe ? <SchoolSubscribe bakery_id={this.props.activeBakery.id}/> :
 <div>
 <img src={this.props.activeBakery.img} width="200px" height="200px"></img>
             {/* {this.props.activeBakery.Title} */}
@@ -43,8 +68,11 @@ this.setState({
             {this.props.activeBakery.email}
 
             <ProductView bakeryId={this.props.activeBakery.id}/>
-            <button onClick={this.toggleSubscribe.bind(this)}>subscribe</button>
 
+            <label>describtion:</label><input type="text" value="text" name="describtion"  /><br />
+<br></br>
+
+   <button onClick={this.toggleSubscribe.bind(this)}>subscribe</button>
   </div>}
 
         </div>
@@ -143,21 +171,22 @@ export default Bakery;
 //   //   }
 //   //   //!!!!!!!
 
-//   renderBakeryInfo(allBakeries) {
-//     console.log('!!!!!!!!', allBakeries);
-//     return allBakeries.map((bakery) => {
-//       return (
-//         <BakeryInfo key={bakery.id}
-//           bakery={bakery}
-//           setCurrentBakery={this.setCurrentBakery.bind(this)}
+  // renderBakeryInfo(allBakeries) {
+  //   console.log('!!!!!!!!', allBakeries);
+  //   return allBakeries.map((bakery) => {
+  //     bakery.Title
+  //     return (
+  //       <BakeryInfo key={bakery.id}
+  //         bakery={bakery}
+  //         setCurrentBakery={this.setCurrentBakery.bind(this)}
 
-//         // setCurrentbakery={this.setCurrentbakery.bind(this)}
+  //       // setCurrentbakery={this.setCurrentbakery.bind(this)}
 
-//         // deletebakery={this.deletebakery.bind(this)}
-//         />
-//       )
-//     })
-//   }
+  //       // deletebakery={this.deletebakery.bind(this)}
+  //       />
+  //     )
+  //   })
+  // }
 
 //   createNewBakery(bakery) {
 
