@@ -87,7 +87,7 @@ class BakeryViews extends Component {
   }
   render() {
     return (
-      <div class="bakery-views">
+      <div className="bakery-views">
         {this.state.activeBakery ? < Bakery
           activeBakery={this.state.activeBakery} /> : this.renderBakeryViews(this.state.bakery)}
       </div>

@@ -55,6 +55,7 @@ class SchoolSubscribe extends Component {
             console.log(error);
           })
        }
+
   
     
     handleChange(event){
