@@ -21,19 +21,19 @@ Provide a list of Bakery that Schools can subscribe to any bakery they like and 
 * React.js
 
 # Additional Libraries :
-*[bootstrap](https://getbootstrap.com/)
+* [bootstrap](https://getbootstrap.com/)
 
 
 # Hosting :
 
-*[Heroku](https://www.heroku.com/)
-*[Surge](https://surge.sh/)
+* [Heroku](https://www.heroku.com/)
+* [Surge](https://surge.sh/)
 
 
 # API used :
 
-*[National Address APIs Portal](https://api.address.gov.sa/docs)
-*[NutritionIX](https://www.nutritionix.com/business/api)
+* [National Address APIs Portal](https://api.address.gov.sa/docs)
+* [NutritionIX](https://www.nutritionix.com/business/api)
 
 
 # Challenges:
