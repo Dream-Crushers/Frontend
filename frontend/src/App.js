@@ -64,7 +64,8 @@ class App extends Component {
   render() {
     return (
       <div>
-// //                 <NavBar
+        <div>
+        <NavBar
           user={this.state.user}
           changeView={this.changeView}
           logout={this.logout}
@@ -72,6 +73,8 @@ class App extends Component {
           signUp={this.signUp}
           logIn={this.logIn}
         />
+        </div>
+           
 
         <div className="container">
           {this.state.user ? 

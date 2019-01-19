@@ -64,7 +64,7 @@ class SchoolSubscribe extends Component {
 
       }
         alertSubscribers(e){
-          alert('Thanks for being part of the community');
+          alert('Thank you');
           e.preventDefault();
        }
       
