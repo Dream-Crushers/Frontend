@@ -3,6 +3,7 @@ import Tile from './Tile';
 import Search from './Search';
 import { getJwt } from "../services/authService";
 import Meal from './Meal';
+import Subscription from '../bakery/Subscription'
 
 
 // const API_URL = 'http://localhost:3000'
@@ -16,7 +17,8 @@ class BakeryProducts extends Component {
           modal: false,
           hovered: false,
           activeMeal: null,
-          search: false
+          search: false,
+          subscription:'',
         }
       } 
     
@@ -42,7 +44,32 @@ class BakeryProducts extends Component {
           .catch( error => {
             console.log(error)
           })
-      }
+          console.log('++',this.state.meals)
+
+        }
+        renderSubscription(){
+            fetch('http://localhost:3000/subscription/onlybaker', {
+            method: 'GET',
+            headers: {
+                "Content-Type": "application/json",
+              "x-auth-token": getJwt()
+            }
+          })
+            .then(response => response.json())
+            .then(data => {
+              console.log(data);
+              this.setState({
+                subscription: data
+              })
+            })
+      
+            .catch(error => {
+              console.log(error)
+            })
+            
+            console.log('----',this.state.subscription)
+        }
+      
 
 
       toggleHover(){
@@ -89,6 +116,16 @@ class BakeryProducts extends Component {
           )
         })
       }
+
+    //   renderSubscription(subscriptions) {
+    //     return subscriptions.map((sub) => {
+    //       return (
+    //         <Subscription key={sub.id}
+    //         subscription={sub}
+    //         />
+    //       )
+    //     })
+    //   }
 
       createNewMeal(meal) {
         console.log('******', meal)
@@ -144,8 +181,9 @@ class BakeryProducts extends Component {
         <div className="meals-list" 
             // onClick={this.handleClick.bind(this)}
             >
-     
+     {/* {this.renderSubscription()} */}
        {this.renderTiles(this.state.meals)}
+       {/* {this.renderSubscription(this.state.subscription)} */}
        
        {this.state.search?  <Search 
        toggleSearch={this.toggleSearch.bind(this)}
@@ -159,6 +197,7 @@ class BakeryProducts extends Component {
 
    <div onClick={this.toggleSearch.bind(this)}>+</div> 
       </div>
+<h1>Hi</h1>
 
 
         </div>
