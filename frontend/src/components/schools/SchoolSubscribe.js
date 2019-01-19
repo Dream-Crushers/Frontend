@@ -18,21 +18,7 @@ class SchoolSubscribe extends Component {
       }
       }
  
-      componentDidMount(){
-        console.log("fetching")
-        const url = 'https://apina.address.gov.sa/NationalAddress/v3.1/address/poi-free-text?language=E&format=JSON&page=1&servicestring=school&api_key=0ee954f2afb146408714f45ebbd41bde';
-        fetch(url)
-        .then(response => response.json())
-        .then(data => {
-          console.log(data);
-          this.setState({
-            school: [data.Addresses]
-          })
-        })
-        .catch(error =>{
-          console.log(error)
-        })
-      }
+     
   
     
     handleChange(event){
