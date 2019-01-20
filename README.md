@@ -42,8 +42,8 @@ Provide a list of Bakery that Schools can subscribe to any bakery they like and 
 
 
 # What's next:
-
-
+We will use
+[react-autocomplete-input](https://www.npmjs.com/package/react-autocomplete-input)
 
 # Credits:
 * 
