@@ -93,8 +93,12 @@ The benefits that arise from proper nutrition and physical activity not only ena
         <div className="container">
  
           {this.state.user ? 
+
+
+
             <BakeryProducts isBaker={this.state.user}/> :  this.renderContent()}
           </div>
+
        {/* {this.state.user ? <BakeryViews/>:  <BakeryViews/>}
        {this.state.form === 'signup'? <NewBakery />:''}
        {this.state.form === 'login'? <SignIn/>:''} */} 

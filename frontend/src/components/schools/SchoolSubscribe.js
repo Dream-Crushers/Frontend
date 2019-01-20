@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-
+// import { Button } from 'react-bootstrap';
 
 class SchoolSubscribe extends Component {
     constructor(){
@@ -55,6 +55,7 @@ class SchoolSubscribe extends Component {
             console.log(error);
           })
        }
+
   
     
     handleChange(event){
@@ -92,6 +93,7 @@ class SchoolSubscribe extends Component {
       }
 
 
+
        toggleSearch(){
         console.log('clicked');
         console.log(this.state.search)
@@ -100,6 +102,7 @@ class SchoolSubscribe extends Component {
      })
      
    }
+
       
 
 
