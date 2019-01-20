@@ -2,8 +2,8 @@
 import React, { Component } from 'react';
 import ProductView from '../meals/ProductView';
 import SchoolSubscribe from '../schools/SchoolSubscribe';
-import { getJwt } from "../services/authService";
-import App from '../../App';
+import Subscription from '../bakery/Subscription'
+
 
 
 class Bakery extends Component{
@@ -11,25 +11,22 @@ class Bakery extends Component{
     super();
     this.state={
       subscribe:false,
-      subscription:'',
-      home:false,
-      form:''
+      subscription:[]
     }
 
   }
 
   componentDidMount() {
 
-    fetch('http://localhost:3000/subscription/onlybaker', {
+    fetch(`http://localhost:3000/subscription/onlyThisBaker/${this.props.activeBakery.id}`, {
       method: 'GET',
       headers: {
-          "Content-Type": "application/json",
-        "x-auth-token": getJwt()
+          "Content-Type": "application/json"
       }
     })
       .then(response => response.json())
       .then(data => {
-        console.log(data);
+        console.log('++',data);
         this.setState({
           subscription: data
         })
@@ -46,6 +43,27 @@ this.setState({
   subscribe:!this.state.subscribe
 })
   }
+  
+  returnSubscription(subscriptions) {
+    return subscriptions.map((sub) => {
+        console.log('sub',sub)
+      return (
+          
+       <div> <Subscription key={sub.id}
+        subscription={sub}
+        />
+     </div> )
+    })
+  }
+
+
+  changeView = (type) => {
+    console.log( type)
+    this.setState({
+      form: type
+    })
+    console.log('f', this.state.form)
+  };
 
   renderContent(){
    
@@ -54,25 +72,38 @@ this.setState({
       return (
 
         <div className="" >
-        {this.state.home ? <App/>: ''}
+              <div className="back" onClick={() => { this.props.setCurrentBakery(null); }} >
+       <img src="https://66.media.tumblr.com/47d3c8b9adf5ec58faae51b5632988aa/tumblr_inline_mnnmb7HFFc1qz4rgp.png" alt="" width="50px" height="50px"/> Back to Bakeries
+      </div>
+      <br/>
       
 {this.state.subscribe ? <SchoolSubscribe bakery_id={this.props.activeBakery.id}/> :
 <div>
-<img src={this.props.activeBakery.img} width="200px" height="200px"></img>
-            {/* {this.props.activeBakery.Title} */}
-            {this.props.activeBakery.title}
-            {this.props.activeBakery.address}
-            {this.props.activeBakery.building_number}
-            {this.props.activeBakery.city}
-            {this.props.activeBakery.phone}
-            {this.props.activeBakery.email}
+<div className="bake-container" >
+            {this.props.activeBakery.title} 
+           - {this.props.activeBakery.city} 
+<div className="products-bar"></div>
+<div className="bakery-info">
+<img src={this.props.activeBakery.img} width="250px" height="300px"></img>
+ 
+            <img src="https://png.pngtree.com/svg/20170206/icon_resume_address_1181229.png" width="30px"height="30px" alt=""/>
+            {this.props.activeBakery.address} &nbsp; &nbsp; 
+            {/* Building Number: {this.props.activeBakery.building_number} */}
+            <img src="http://aiprosdesign.com/wp-content/uploads/2016/07/phone-256.png" width="30px"height="30px" alt=""/>
+            {this.props.activeBakery.phone} &nbsp; &nbsp; 
+            <img src="http://aux.iconspalace.com/uploads/email-icon-256-1250130517.png" width="30px"height="30px" alt=""/>
+             {this.props.activeBakery.email}
 
+
+            </div>
+            <br/><br/>
+            <img src="https://i.postimg.cc/YS3X9tMd/Screen-Shot-2019-01-20-at-6-07-31-AM.png" width="300px" height="70px" alt=""/> <br/><br/><br/>
             <ProductView bakeryId={this.props.activeBakery.id}/>
-
-            <label>describtion:</label><input type="text" value="text" name="describtion"  /><br />
+            </div>
 <br></br>
+{this.returnSubscription(this.state.subscription)}
 
-   <button onClick={this.toggleSubscribe.bind(this)}>subscribe</button>
+  <div className="subscribe-button"> <button onClick={this.toggleSubscribe.bind(this)}>subscribe</button></div>
   </div>}
 
         </div>

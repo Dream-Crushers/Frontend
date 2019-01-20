@@ -27,14 +27,15 @@ class BakeryViews extends Component {
         console.log(error)
       })
   }
+
   toggleHover() {
     this.setState({
       hovered: !this.state.hovered
     })
   }
 
-  renderBakeryViews(allBakeries) {
-    return allBakeries.map((bakery) => {
+  renderBakeryViews(allBakeries) {  
+ return allBakeries.map((bakery) => {
       return (
         <BakeryInfo key={bakery.id}
           bakery={bakery}
@@ -43,41 +44,19 @@ class BakeryViews extends Component {
       )
     })
   }
-  //   handleSubmit(bakery) {
-  //   // if(this.state.activeShow) {
-  //   //   this.updateShow(bakery)
-  //   // } else {
-  //   this.createNewBakery(bakery)
 
-  // }
+  handleChange(event){
 
-  //   createNewBakery(bakery) {
+    const currentInput = event.target.name;
+    const newValue = event.target.value;
 
-  //   const url = 'http://localhost:3000/bakery'
-  //   fetch(url, {
-  //     method: 'POST',
-  //     headers: {
-  //       "Content-Type": "application/json"
-  //     },
-  //     body: JSON.stringify(bakery)
-  //   })
-  //     .then(response => response.json())
-  //     .then(data => {
-  //       console.log('DATA')
-  //       console.log(data);
-  //       const updatedBakery = this.state.bakery.concat([data]);
-  //       console.log(updatedBakery)
-  //       this.setState({
-  //         bakery: updatedBakery,
-  //         activeShow: data,
-  //         modal: false,
-  //         search: false
-  //       })
-  //     })
-  //     .catch(error => {
-  //       console.log(error);
-  //     })
-  // }
+    this.setState({
+      [currentInput]: newValue,
+      bakery_id:this.props.bakery_id
+
+    })
+  }
+
 
   setCurrentBakery(bakery) {
     console.log(bakery)
@@ -87,10 +66,17 @@ class BakeryViews extends Component {
   }
   render() {
     return (
-      <div class="bakery-views">
+      <div>
+      <div className="bakeries-header"> <img src="https://i.postimg.cc/QdKK6mFs/Screen-Shot-2019-01-20-at-5-30-33-AM.png" width="300px" height="70px" alt=""/></div>
+      <br/>    
+     <div className="bakery-views">
+      <br/>
         {this.state.activeBakery ? < Bakery
-          activeBakery={this.state.activeBakery} /> : this.renderBakeryViews(this.state.bakery)}
-      </div>
+          activeBakery={this.state.activeBakery}
+          setCurrentBakery={this.setCurrentBakery.bind(this)}  /> : 
+          this.renderBakeryViews(this.state.bakery)}
+      
+      </div></div>
     )
   }
 }

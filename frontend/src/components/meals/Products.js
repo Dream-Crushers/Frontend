@@ -58,7 +58,6 @@ class Products extends Component {
             console.log(error);
           })
       }
-      //!!!!!!!
 
       setCurrentMeal(meal) {
         console.log('setting meal');
@@ -66,7 +65,6 @@ class Products extends Component {
         this.setState({
           activeMeal: meal
         })
-        // when given a show, set state 'activeShow' to that show
       }
 
       renderTiles(allMeals) {
@@ -124,13 +122,9 @@ class Products extends Component {
     render() {
       return (
         <div className="products">
-            <div className="meal" >
-            {/* {this.renderTiles(this.state.meals)} */}
-            </div>
+            <div className="meal" >  </div>
 
-        <div className="meals-list" 
-            // onClick={this.handleClick.bind(this)}
-            >
+        <div className="meals-list"   >
      
        {this.renderTiles(this.state.meals)}
        {this.state.search?  <Search 

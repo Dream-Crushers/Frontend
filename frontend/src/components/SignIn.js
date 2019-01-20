@@ -58,26 +58,19 @@ class SignIn extends Component {
 
     render() {
         return (
-        <div className=" ">
-            <form onSubmit={this.handleSubmit} className=" " onSubmit={this.handleSubmit}>
-            <div className=" ">
-                <label className=" " >E-Mail Address</label>
+        <div className="envelope">
+            <form onSubmit={this.handleSubmit} className="signUp-form" onSubmit={this.handleSubmit}> <br/><br/><br/>
+                <label className=" " >E-Mail Address </label>
                 <input type="text" id="email" className=" " 
                 placeholder="Enter your email" name="email" value={this.state.email} 
                 onChange={this.handleChange} />
-              </div>
-
-              <div className=" ">
-                <label className=" " htmlFor="password">Password</label>
+<br/><br/>
+                <label className=" " htmlFor="password">Password </label>
                 <input type="password" id="password" className=" " 
                 placeholder="Enter your password" name="password" 
                 value={this.state.password} onChange={this.handleChange} />
-              </div>
+                <br/><br/>
               <button>Sign In</button>
-
-           {/*    <div className=" ">
-                  <button className="  ">Sign In</button> <Link to="/" className=" ">Create an account</Link>
-              </div> */}
             </form>
           </div>
         );

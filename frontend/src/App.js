@@ -54,7 +54,17 @@ class App extends Component {
 
   renderContent(){
     if(this.state.form ==='home')
-    return <BakeryViews/>
+    return (
+      <div>
+        <div className="H-header"><img src="https://i.postimg.cc/bw9hvJpS/Screen-Shot-2019-01-19-at-11-23-17-PM.pnghttps://i.postimg.cc/fLx7G6xs/Screen-Shot-2019-01-19-at-11-25-10-PM.png" width="60%" height="500px" alt=""/></div>
+        <div className="bot-left">
+<p> We encourage school professionals, families and communities to take actions that lead to healthy eating habit, we provide an easy subscribe with a variety   of bakery <br/>
+The benefits that arise from proper nutrition and physical activity not only enable better concentration and focus, but also sets kids up for a healthy future.</p>        </div>
+        <br/><br/>
+    <BakeryViews
+    isBaker={this.state.user}/>
+    </div>
+    )
     else if(this.state.form ==='login')
     return <SignIn onLogin={this.login}/>
     else
@@ -63,7 +73,12 @@ class App extends Component {
 
   render() {
     return (
-      <div>
+      <div className="app-container">
+      <div className="body">
+        <div className="logo"><img src="https://i.postimg.cc/cLFhFMX1/Screen-Shot-2019-01-19-at-10-31-15-PM.png" alt=""/></div>
+               <div className="leave">
+               <img src="https://66.media.tumblr.com/cb8bcb3b339986e9d9a325ec132bf896/tumblr_ods9zy41U51qizma6o1_500.jpg" width="200px" height="300px" alt=""/>
+               </div>
                 <NavBar
           user={this.state.user}
           changeView={this.changeView}
@@ -73,8 +88,10 @@ class App extends Component {
           logIn={this.logIn}
         />
 
+<br/><br/>
 
         <div className="container">
+ 
           {this.state.user ? 
             <BakeryProducts isBaker={this.state.user}/> :  this.renderContent()}
           </div>
@@ -88,7 +105,7 @@ class App extends Component {
       {/* <Products/> */}
       {/* <SignUp/> */}
       {/* <SignIn/> */}
-        </div>
+      </div> </div>
     );
   }
 }

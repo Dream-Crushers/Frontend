@@ -4,9 +4,7 @@ import Search from './Search';
 import { getJwt } from "../services/authService";
 import Meal from './Meal';
 import Subscription from '../bakery/Subscription'
-
-
-// const API_URL = 'http://localhost:3000'
+import EditSubscription from '../bakery/EditSubscription'
 
 class BakeryProducts extends Component {
     constructor(){
@@ -18,7 +16,7 @@ class BakeryProducts extends Component {
           hovered: false,
           activeMeal: null,
           search: false,
-          subscription:'',
+          subscription:[]
         }
       } 
     
@@ -45,6 +43,7 @@ class BakeryProducts extends Component {
             console.log(error)
           })
           console.log('++',this.state.meals)
+          {this.renderSubscription()}
 
         }
         renderSubscription(){
@@ -57,10 +56,11 @@ class BakeryProducts extends Component {
           })
             .then(response => response.json())
             .then(data => {
-              console.log(data);
+              console.log('dddd',data);
               this.setState({
                 subscription: data
               })
+              console.log('----',this.state.subscription)
             })
       
             .catch(error => {
@@ -101,7 +101,6 @@ class BakeryProducts extends Component {
         this.setState({
           activeMeal: meal
         })
-        // when given a show, set state 'activeShow' to that show
       }
 
       renderTiles(allMeals) {
@@ -117,15 +116,57 @@ class BakeryProducts extends Component {
         })
       }
 
-    //   renderSubscription(subscriptions) {
-    //     return subscriptions.map((sub) => {
-    //       return (
-    //         <Subscription key={sub.id}
-    //         subscription={sub}
-    //         />
-    //       )
-    //     })
-    //   }
+      returnSubscription(subscriptions) {
+        return subscriptions.map((sub) => {
+            console.log('sub',sub)
+          return (
+              
+           <div> <Subscription key={sub.id}
+            subscription={sub}
+            toggleModal={this.toggleModal.bind(this)}
+            isBaker={this.props.isBaker}
+            />
+            {this.state.modal ? 
+                <EditSubscription 
+                  // handleSubmit={this.handleSubmit.bind(this)} 
+                  subscription={sub}
+                  toggleModal={this.toggleModal.bind(this)}
+                  updateSubscription={this.updateSubscription.bind(this)}
+                  /> : ''}
+         </div> )
+        })
+      }
+      updateSubscription(sub) {
+        console.log('recieved', sub)
+        const url = `http://localhost:3000/subscription/onlybakerUpdateY`
+        fetch(url, {
+          method: 'PUT',
+          headers: {
+            "Content-Type": "application/json",
+            "x-auth-token": getJwt()
+          },
+          body: JSON.stringify(sub)
+        })
+        .then(response => response.json() )
+        .then(data => {
+            console.log('ddddd', data)
+          const updatedSubscription= this.state.subscription.map(el => {
+              console.log('el',el)
+            return el.id === data.id ? data : el
+          })
+          console.log('current state: ', this.state.subscription);
+          console.log('new state: ', this.updatedSubscription)
+    
+          this.setState({
+            subscription: updatedSubscription,
+            // activeShow: show,
+            modal: false
+          })
+        })
+        .catch(error => {
+          console.log(error);
+        })
+      }
 
       createNewMeal(meal) {
         console.log('******', meal)
@@ -174,6 +215,8 @@ class BakeryProducts extends Component {
     render() {
       return (
         <div className="products">
+              <div className="bakeries-header"> <img src="https://i.postimg.cc/YS3X9tMd/Screen-Shot-2019-01-20-at-6-07-31-AM.png" width="300px" height="70px" alt=""/>
+      </div>
             <div className="meal" >
             {/* {this.renderTiles(this.state.meals)} */}
             </div>
@@ -181,9 +224,7 @@ class BakeryProducts extends Component {
         <div className="meals-list" 
             // onClick={this.handleClick.bind(this)}
             >
-     {/* {this.renderSubscription()} */}
        {this.renderTiles(this.state.meals)}
-       {/* {this.renderSubscription(this.state.subscription)} */}
        
        {this.state.search?  <Search 
        toggleSearch={this.toggleSearch.bind(this)}
@@ -195,9 +236,22 @@ class BakeryProducts extends Component {
           toggleModal={this.toggleModal.bind(this)}
           />:''}
 
-   <div onClick={this.toggleSearch.bind(this)}>+</div> 
+   <div  className="action-buttons">
+   <div onClick={this.toggleSearch.bind(this)}>Add product</div> </div>
       </div>
-<h1>Hi</h1>
+      <br/><br/><br/>
+      
+      <div className="bakeries-header"> <img src="https://i.postimg.cc/vmpbNfSV/Screen-Shot-2019-01-20-at-7-43-04-AM.png" width="300px" height="70px" alt=""/>
+      </div>
+      <br/><br/>
+      {this.returnSubscription(this.state.subscription)}
+
+ {/* {this.state.modal ? 
+          <EditSubscription 
+            // handleSubmit={this.handleSubmit.bind(this)} 
+            subscription={this.state.subscription}
+            toggleModal={this.toggleModal.bind(this)}
+            /> : ''} */}
 
 
         </div>

@@ -14,10 +14,7 @@ constructor(){
         phone:'',
         img:''
     }
-
-
 }
-
 
 componentDidMount() {
     console.log('fetching data');
@@ -50,7 +47,6 @@ handleChange(event){
 
   handleSubmit(event) {
     event.preventDefault();
-    // this.props.handleSubmit(this.state)
     this.createNewBakery(this.state)
   }
   
@@ -84,15 +80,8 @@ handleChange(event){
   
   render(){
     return(
-      <div className=".">
-        <form className="bakery-form" onSubmit={this.handleSubmit.bind(this)}>
-          <div className="." 
-        //   onClick={()=>{this.props.toggleModal()}}
-          >x</div>
-                   {/* <select name="cars">
-  <option value={this.props.bakery.Title}>
-  {this.props.bakery.Title}</option>
-  </select><br/> */}
+      <div className="envelope">
+        <form className="signUp-form" onSubmit={this.handleSubmit.bind(this)}>
           <label>Email:</label><input type="text" value={this.state.email} name="email" onChange={this.handleChange.bind(this)}/><br/>
           <label>password:</label><input type="password" value={this.state.password} name="password" onChange={this.handleChange.bind(this)}/><br/>
           <label>Name:</label><input type="text" value={this.state.title} name="title" onChange={this.handleChange.bind(this)}/><br/>

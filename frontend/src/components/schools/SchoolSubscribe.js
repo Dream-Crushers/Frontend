@@ -107,19 +107,18 @@ class SchoolSubscribe extends Component {
       
       render(){
         return(
-          <div className="school">
-            <form className="show-form" onSubmit={this.handleSubmit.bind(this)}>
-              <div className="close-modal"> </div>
-             <input type="text" value={this.props.bakery_id} name="bakery_id" /><br/>
+          <div className="envelope">
+            <form className="signUp-form" onSubmit={this.handleSubmit.bind(this)}>
+             <input type="text" value={this.props.bakery_id} name="bakery_id"  hidden />
               <label>Email:</label><input type="text" value={this.state.email} name="email" onChange={this.handleChange.bind(this)}/><br/>
               <label>School Name:</label><input type="text" value={this.state.title} name="title" onChange={this.handleChange.bind(this)}/><br/>
               <label>City:</label><input type="text" value={this.state.city}name="city" onChange={this.handleChange.bind(this)}/> 
-              <div onClick={this.toggleSearch.bind(this)}><img src="https://i.imgur.com/WX7bym4.png" alt="" width="18px" height="15px"/></div> <br/>
-              <label>Address:</label><input type="text" value={this.state.address} name="address" onChange={this.handleChange.bind(this)}/><br/>
-              <label>Building Number:</label><input type="text" value={this.state.building_number}name="building_number" onChange={this.handleChange.bind(this)}/><br/>
+              {/* <div onClick={this.toggleSearch.bind(this)}><img src="https://i.imgur.com/WX7bym4.png" alt="" width="18px" height="15px"/></div>  */}
+              <br/>
+              <label>Address:</label><input type="text" value={this.state.address} name="address" onChange={this.handleChange.bind(this)}/>
+             <input type="text" value={this.state.building_number}name="building_number" onChange={this.handleChange.bind(this)} hidden/><br/>
               <label>Phone:</label><input type="text" value={this.state.phone}name="phone" onChange={this.handleChange.bind(this)}/><br/>
-
-              <label>No.Of Students:</label><input type="text" value={this.state.NoOfStudents}name="NoOfStudents" onChange={this.handleChange.bind(this)}/><br/>
+              <label>No. of Students:</label><input type="text" value={this.state.NoOfStudents}name="NoOfStudents" onChange={this.handleChange.bind(this)}/><br/>
 
               <label>subscribe Time: </label>
               <select name="subscribe_time"

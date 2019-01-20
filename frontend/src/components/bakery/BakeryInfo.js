@@ -1,5 +1,4 @@
-import React, { Component } from 'react';
-import BakeryViews from './BakeryViews';
+import React from 'react';
 
 const BakeryInfo = (props) => {
     return (
@@ -8,8 +7,8 @@ const BakeryInfo = (props) => {
         <div className="bakery-view"
             onClick={() => { props.setCurrentBakery(props.bakery) }} >
             <img src={props.bakery.img} width="200px" height="200px"></img>
-            {props.bakery.Title}
-            {props.bakery.title}
+          <div className="bakery-name">  {props.bakery.title}</div> 
+          <div className="bakery-city">  {props.bakery.city}</div>
             
         </div>
     )

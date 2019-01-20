@@ -1,47 +1,172 @@
+.body{
+  width:70%;
+  margin:auto;
+  margin-top: 20px;
+  overflow:hidden;
+  background-color: #ffffff;
+  position: relative;
+  height: 100%;
+  font-family: Lucida Console, Courier, monospace;
+font-size:13px
+
+}
+.action-buttons{
+  position: fixed;
+  top: 0;
+  right: 20px;
+  display: flex;
+  width: 50px;
+  height: 100vh;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.action-buttons div{
+  margin-bottom: 20px;
+  background-color:  #8fa39a;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 10px;
+  text-align: center;
+  padding: 0 4px 4px;
+  border-radius: 50%;
+  box-shadow: 2px 2px 7px rgba(0,0,0,.3);
+  color: white;
+  cursor: pointer;
+}
+.app-container{
+  background-image: url('https://c.stocksy.com/a/H7P000/z9/96551.jpg');
+
+  width:100%;
+  height: 2000px;
+}
+
+.subscription-container > button{
+  margin-left: 540px;
+  padding : 3px 10px;
+}
+
+.subscription-container>table {
+width:800px;
+margin-left: 100px;
+padding:20px;
+  background-color: rgb(143,163,154,0.3)
+}
+
+
+/* .table-first{
+  border-right: 2px solid black;
+} */
+/* .subscription-container ta */
+table {
+  border-collapse: collapse;
+  padding:30px
+}
+
+table, th, td {
+  border: 1px solid black;
+  text-align: center;
+  
+}
+.navUl{
+  list-style: none;
+  display: flex;
+  position: absolute;
+  left:250px;
+  top:0px
+}
+
+.H-header{
+text-align: center;
+z-index: 1;
+}
+
+.navList{
+  padding-right:150px;
+  font-size: 20px;
+  font-weight: bold
+}
+.logo{
+text-align: center;
+width: 70%;
+padding-bottom: 40px;
+margin-left: 200px;
+border-bottom: 4px solid #c6a632;
+}
+
+.leave{
+  position: absolute;
+  right:100px
+}
+
+.bakeries-header{
+  margin-left: 350px;
+}
+
+.bake-container{
+  position: relative;
+
+}
+
+.bake-container > img{
+  position: absolute;
+  left:250px
+
+}
+
+.products-bar{
+  width:900px;
+  height: 200px;
+  background-color: #8fa39a;
+  opacity: 0.3;
+  position: absolute;
+  top:40px;
+}
+
+.bakery-info >img{
+  z-index: 2;
+  /* position: absolute; */
+
+}
+
+
+.navv{
+  position: absolute;
+  right:0
+}
+
 .meals-list{
   display:flex;
-  margin:20px
+padding-left: 150px
 }
 .tile-container{
   width: 200px;
   height: 200px;
   display: flex;
   flex-direction: column;
-  flex-wrap:  wrap;
+  flex-wrap: wrap;
   margin: 10px 20px;
   justify-content: space-between;
-  background-color:  rgb(247, 238, 238);
-  cursor: pointer;
+  background-color:  rgb(198,166,50,0.1);
   position: relative;
 }
+
+
+.meal-name{
+  text-align: center;
+  background-color: rgb(143,163,154,0.3);
+  font-size: 20px;
+ }
 
 .tile-container > img{
 position: absolute;
 bottom:0;
 left:40px;
 }
-/* .tile-container {
-  width: 250px;
-  height: 400px;
-  display: flex;
-  flex-direction: column;
-  margin: 10px 5px;
-  justify-content: space-between;
-  background-color:  rgb(228, 93, 93);
-  cursor: pointer;
-} */
 
-
-/* .tile-container > h2 {
-  margin: 0;
-  height: 80px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 5px;
-  color: white;
-} */
 
 .meal-details{
   position: relative;
@@ -51,20 +176,73 @@ left:40px;
 
 }
 .bakery-views{
-  display:flex
+  display:flex;
+padding-left: 150px
+
 }
 
 .bakery-view{
-  width: 200px;
+  width: 250px;
   height: 200px;
   display: flex;
   flex-direction: column;
   flex-wrap:  wrap;
   margin: 10px 20px;
   justify-content: space-between;
-  background-color:  rgb(247, 238, 238);
+  /* background-color:  rgb(247, 238, 238); */
   cursor: pointer;
   position: relative;
+  margin:10px;
+  padding:10px
+}
+.bakery-view >img{
+  opacity: 0.3;
+  padding-left: 50px;
+}
+
+.bakery-city{
+  transform: rotate(-90deg);
+  position: absolute;
+  bottom: 20px;
+  font-weight: bolder;
+  font-size: 20px;
+  color:#c6a632
+}
+
+.bakery-name{
+  background-color: #8fa39a;
+  position: absolute;
+  width:35%;
+  top:50px;
+  padding:10px
+}
+
+.subscribe-button{
+padding-left: 350px
+}
+
+.envelope{
+  width:700px;
+  height: 650px;
+  background-image: url('http://cdn.shopify.com/s/files/1/1893/0179/products/state-of-elliott-wedding-invitation-white_wedding-envelope-liner-soft_green_1024x1024.png?v=1502580960');
+  background-size: 700px 650px;
+  /* opacity: 0.7; */
+  margin-bottom: 20px;
+  margin-left:200px;
+  position: relative;
+}
+
+.signUp-form{
+  background-color: white;
+  width:500px;
+  height: 350px;
+  z-index: 1;
+  position: absolute;
+  left:100px;
+  text-align: center;
+  bottom:30px;
+  padding-top: 20px
+
 }
 .delete-meal{
 
@@ -105,7 +283,7 @@ left:40px;
 }
 
 .search-container form button{
-  background-color: rgb(228, 93, 93);
+  background-color: #8fa39a;
 }
 
  .search-result{
@@ -204,4 +382,35 @@ left:40px;
 #nutritionfacts .highlighted {
   border:1px dotted grey;
   padding:2px;
+}
+
+.bot-left {
+  position: relative;
+  margin-left:200px;
+  padding:0 20px;
+  color:rgb(198,166,50);
+  width:50%;
+}
+.bot-left:before, .bot-left:after {
+  content: "";
+  position: absolute;
+  bottom: -3px;
+  left: -3px;
+  
+}
+.bot-left:before {
+  top: -3px;
+  width: 3px;
+  background-image: -webkit-gradient(linear, 0 100%, 0 0, from(#8fa39a), to(transparent));
+  background-image: -webkit-linear-gradient(transparent, #8fa39a);
+  background-image: -moz-linear-gradient(transparent, #8fa39a);
+  background-image: -o-linear-gradient(transparent, #8fa39a);
+}
+.bot-left:after {
+  right: -3px;
+  height: 3px;
+  background-image: -webkit-gradient(linear, 0 0, 100% 0, from(#8fa39a), to(transparent));
+  background-image: -webkit-linear-gradient(left, #8fa39a, transparent);
+  background-image: -moz-linear-gradient(left, #8fa39a, transparent);
+  background-image: -o-linear-gradient(left, #8fa39a, transparent);
 }

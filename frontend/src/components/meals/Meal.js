@@ -34,12 +34,6 @@ class Meal extends Component {
   render(){
     return(
     <div>
-      <div
-        className="back"
-        onClick={() => {this.props.setCurrentMeal(null);
-        }} >
-        back
-      </div>
       <div className="search-modal">
       <div className="close-modal" onClick={()=>{this.props.setCurrentMeal(null)}}>x</div>
       
@@ -50,7 +44,7 @@ class Meal extends Component {
           <br/><br/>
           
             <img src={this.props.activeMeal.img} alt="" width="100px" height="100px" />
-            <h2>Meal:{this.props.activeMeal.name}</h2>
+            <h2>{this.props.activeMeal.name}</h2>
             <div id="nutritionfacts">
         <table width="242" cellSpacing="0" cellPadding="0">
             <tbody><tr>
@@ -151,21 +145,10 @@ class Meal extends Component {
                        
         </tbody></table>
     </div>
-
-            {/* <h4>Calories:{this.props.activeMeal.calories} </h4>
-            <h6>Fat:{this.props.activeMeal.fat}</h6>
-            <h6>Protein:{this.props.activeMeal.protein}</h6> */}
-            {/* <h6>Carb:{this.props.activeMeal.carbohydrate}</h6> */}
-            {/* <h6>Sodium:{this.props.activeMeal.sodium}</h6> */}
-            {/* <h6>Cholesterol:{this.props.activeMeal.cholesterol}</h6> */}
-            {/* <h6>Vitamin A:{this.props.activeMeal.vitamin_a}</h6>
-            <h6> Vitamin C:{this.props.activeMeal.vitamin_c}</h6> */}
-            {/* <h6>Calcium:{this.props.activeMeal.calcium}</h6>
-            <h6> Iron:{this.props.activeMeal.iron}</h6> */}
           </div>
           <div>
-
-        <h3>Activity</h3>
+<br/>
+        <h5>Activities needed to burn calories</h5>
         {this.getCalories()}
           </div>
         </div>
